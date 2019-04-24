@@ -23,7 +23,7 @@ const user = (state = initialState, action) => {
                 isLoading: false
             };
         case LOGIN_REJECTED:
-        alert('awwkwkkw')
+        alert('login rejected')
             return {
                 user: {},
                 token: {},

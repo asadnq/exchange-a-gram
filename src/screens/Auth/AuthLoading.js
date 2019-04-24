@@ -1,25 +1,29 @@
 import React from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { connect } from 'react-redux';
+import { NavigationEvents } from 'react-navigation';
 
 class AuthLoading extends React.Component {
     constructor(props) {
         super(props);
-        this.authenticate();
     }
 
-    authenticate = () => {
-        if(this.props.isAuthenticated) {
-            this.props.navigation.navigate('Home')
-        } else {
-            this.props.navigation.navigate('Login')
-        }
+    _toMainStack = () => {
+        this.props.navigation.navigate('Home')
     }
-
     
+    _toLoginScreen = () => {
+        alert('auth error');
+        this.props.navigation.navigate('Login');
+    }
+
     render() {
         return(
-            <ActivityIndicator />
+            <View>
+                <NavigationEvents onDidFocus={() => this.props.isAuthenticated ? this._toMainStack() : this._toLoginScreen()}
+                />
+                <ActivityIndicator />
+            </View>
         );
     }
 }

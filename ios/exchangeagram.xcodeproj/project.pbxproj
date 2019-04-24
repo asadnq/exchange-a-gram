@@ -59,6 +59,12 @@
 		F8C2C67EF4884E4590A0435F /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDA71FDAC1EC416FA53E9CEF /* SimpleLineIcons.ttf */; };
 		790D3B184641420CA98ED511 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53A287712223404C83F55007 /* Zocial.ttf */; };
 		DB742D1D54994146978ADB8A /* libRNCAsyncStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF47040CE80740D2813B1F44 /* libRNCAsyncStorage.a */; };
+		CD1647CF4E8F4E55A3D2938D /* Dosis-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE1B438AF8E4EBA85FE5143 /* Dosis-Light.ttf */; };
+		41A7E9CD1F584F49B3733BBF /* Dosis-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC4C4F9F3E1B48618321BB27 /* Dosis-Medium.ttf */; };
+		79C3F28984014110B670AB4D /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 94DC5EAFE6EA4C728D8ADEE1 /* Dosis-Regular.ttf */; };
+		BF652DD3F0C5409B9C76CB86 /* FiraSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8402B896594496E828798E4 /* FiraSans-Regular.otf */; };
+		957F40F4536F48F19606877C /* FiraSans-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A55B70561344C099A7F17D0 /* FiraSans-Thin.otf */; };
+		A713AB6E0019453595C740C2 /* NanumGothic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7963693E48F54CA987F93A83 /* NanumGothic-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -389,6 +395,12 @@
 		53A287712223404C83F55007 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		DBFA6392680349658C503EF0 /* RNCAsyncStorage.xcodeproj */ = {isa = PBXFileReference; name = "RNCAsyncStorage.xcodeproj"; path = "../node_modules/@react-native-community/async-storage/ios/RNCAsyncStorage.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		EF47040CE80740D2813B1F44 /* libRNCAsyncStorage.a */ = {isa = PBXFileReference; name = "libRNCAsyncStorage.a"; path = "libRNCAsyncStorage.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		DBE1B438AF8E4EBA85FE5143 /* Dosis-Light.ttf */ = {isa = PBXFileReference; name = "Dosis-Light.ttf"; path = "../assets/fonts/Dosis-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FC4C4F9F3E1B48618321BB27 /* Dosis-Medium.ttf */ = {isa = PBXFileReference; name = "Dosis-Medium.ttf"; path = "../assets/fonts/Dosis-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		94DC5EAFE6EA4C728D8ADEE1 /* Dosis-Regular.ttf */ = {isa = PBXFileReference; name = "Dosis-Regular.ttf"; path = "../assets/fonts/Dosis-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D8402B896594496E828798E4 /* FiraSans-Regular.otf */ = {isa = PBXFileReference; name = "FiraSans-Regular.otf"; path = "../assets/fonts/FiraSans-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0A55B70561344C099A7F17D0 /* FiraSans-Thin.otf */ = {isa = PBXFileReference; name = "FiraSans-Thin.otf"; path = "../assets/fonts/FiraSans-Thin.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7963693E48F54CA987F93A83 /* NanumGothic-Regular.ttf */ = {isa = PBXFileReference; name = "NanumGothic-Regular.ttf"; path = "../assets/fonts/NanumGothic-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -680,6 +692,12 @@
 				DEEC150C2ACC4799A4E7DAD5 /* Octicons.ttf */,
 				DDA71FDAC1EC416FA53E9CEF /* SimpleLineIcons.ttf */,
 				53A287712223404C83F55007 /* Zocial.ttf */,
+				DBE1B438AF8E4EBA85FE5143 /* Dosis-Light.ttf */,
+				FC4C4F9F3E1B48618321BB27 /* Dosis-Medium.ttf */,
+				94DC5EAFE6EA4C728D8ADEE1 /* Dosis-Regular.ttf */,
+				D8402B896594496E828798E4 /* FiraSans-Regular.otf */,
+				0A55B70561344C099A7F17D0 /* FiraSans-Thin.otf */,
+				7963693E48F54CA987F93A83 /* NanumGothic-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1146,6 +1164,12 @@
 				5C3E64BFDAEB4B2186567FDE /* Octicons.ttf in Resources */,
 				F8C2C67EF4884E4590A0435F /* SimpleLineIcons.ttf in Resources */,
 				790D3B184641420CA98ED511 /* Zocial.ttf in Resources */,
+				CD1647CF4E8F4E55A3D2938D /* Dosis-Light.ttf in Resources */,
+				41A7E9CD1F584F49B3733BBF /* Dosis-Medium.ttf in Resources */,
+				79C3F28984014110B670AB4D /* Dosis-Regular.ttf in Resources */,
+				BF652DD3F0C5409B9C76CB86 /* FiraSans-Regular.otf in Resources */,
+				957F40F4536F48F19606877C /* FiraSans-Thin.otf in Resources */,
+				A713AB6E0019453595C740C2 /* NanumGothic-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
