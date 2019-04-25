@@ -2,7 +2,7 @@ import { LOGIN_FULFILLED, LOGIN_PENDING, LOGIN_REJECTED } from '../actions/types
 
 const initialState = {
     user: {},
-    token: {},
+    access_token: {},
     isAuthenticated: false,
     isLoading: false
 }
@@ -18,7 +18,7 @@ const user = (state = initialState, action) => {
             alert('login fulfilled')
             return {
                 user: action.payload.data.user,
-                token: action.payload.data.access_token,
+                access_token: action.payload.data.access_token,
                 isAuthenticated: true,
                 isLoading: false
             };
@@ -26,7 +26,7 @@ const user = (state = initialState, action) => {
         alert('login rejected')
             return {
                 user: {},
-                token: {},
+                access_token: {},
                 isAuthenticated: false,
                 isLoading: false
             };

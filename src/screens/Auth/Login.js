@@ -44,7 +44,7 @@ export class Login extends Component {
 
   _login = () => {
     this.props.login(this.state.control);
-    setTimeout(() => { this.props.navigation.navigate('AuthLoading');}, 500)
+    setTimeout(() => { this.props.navigation.navigate('AuthLoading');}, 1500)
 };
 
   render() {
