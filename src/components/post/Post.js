@@ -1,32 +1,52 @@
 import React from 'react';
-import { View, StyleSheet, FlatList, Dimensions } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  FlatList,
+  Dimensions,
+  TouchableOpacity
+} from 'react-native';
 import { Text, Image, Avatar } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { POST_IMAGE_PATH, PROFILE_PICTURE_PATH } from '../../config/url.config';
+import addPostImg from '../../../assets/images/add_image.png';
 
 const Post = props => (
   <View style={styles.postContainer}>
     <View style={styles.postHeader}>
-      <Avatar rounded containerStyle={styles.userAvatar} source={{uri: PROFILE_PICTURE_PATH + props.user.profile_pict}} />
-      <Text style={styles.username}>{props.user.username}</Text>
+      <Avatar
+        rounded
+        containerStyle={styles.userAvatar}
+        source={{ uri: PROFILE_PICTURE_PATH + props.user.profile_pict }}
+      />
+      <Text style={styles.headerUsername}>{props.user.username}</Text>
     </View>
     <Image
       containerStyle={styles.imgWrapper}
       style={styles.img}
-      resizeMode='cover'
-      source={{ uri: POST_IMAGE_PATH + props.image.image}}
+      resizeMode="cover"
+      source={
+        props.image !== null
+          ? { uri: POST_IMAGE_PATH + props.image.image }
+          : addPostImg
+      }
     />
     <View style={styles.actionBar}>
-      <Icon name='ios-heart' size={32} style={styles.icon} />
-      <Icon name='ios-chatboxes' size={32} style={styles.icon} />
-      <Icon name='ios-share-alt' size={32} style={styles.icon} />
+      <Icon name="ios-heart" size={32} style={styles.icon} />
+      <TouchableOpacity onPress={props.commentButtonAction}>
+        <Icon name="ios-chatboxes" size={32} style={styles.icon} />
+      </TouchableOpacity>
+      <Icon name="ios-share-alt" size={32} style={styles.icon} />
     </View>
-    <View style={styles.descriptionWrapper}>
+    <TouchableOpacity
+      onPress={props.bodyAction}
+      style={styles.descriptionWrapper}
+    >
       <View style={{ flexDirection: 'column', marginBottom: 12 }}>
         <Text style={{ fontWeight: 'bold' }}>{props.user.username}</Text>
         <Text>{props.body}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   </View>
 );
 
@@ -50,6 +70,10 @@ const styles = StyleSheet.create({
   userAvatar: {
     marginRight: 10
   },
+  headerUsername: {
+    fontWeight: 'bold',
+    fontSize: 16
+  },
   imgWrapper: {
     flexDirection: 'row',
     marginBottom: 12,
@@ -71,8 +95,8 @@ const styles = StyleSheet.create({
     height: height * 0.05
   },
   icon: {
-      marginRight: 8,
-      color: '#ccc'
+    marginRight: 8,
+    color: '#ccc'
   },
   descriptionWrapper: {
     flexDirection: 'column',

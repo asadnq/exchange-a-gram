@@ -3,9 +3,11 @@ import { createAppContainer, createStackNavigator, createSwitchNavigator, create
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Login from '../screens/Auth/Login';
+import AuthLoading from '../screens/Auth/AuthLoading';
 import Home from '../screens/Main/Home';
 import CreatePost from '../screens/Main/CreatePost';
-import AuthLoading from '../screens/Auth/AuthLoading';
+import PostDetail from '../screens/Main/PostDetail';
+import PostComment from '../screens/Main/PostComment';
 
 const AuthStack = createStackNavigator(
     {
@@ -52,7 +54,16 @@ const MainTab = createBottomTabNavigator(
 const MainStack = createStackNavigator(
     {
         MainTab: {
-            screen: MainTab 
+            screen: MainTab,
+            navigationOptions: {
+                header: null
+            }
+        },
+        PostDetail: {
+            screen: PostDetail
+        },
+        PostComment: {
+            screen: PostComment
         }
     },
     {
@@ -73,7 +84,7 @@ const MainSwitch = createSwitchNavigator(
         }
     },
     {
-        initialRouteName: 'Main'
+        initialRouteName: 'Auth'
     }
 )
 

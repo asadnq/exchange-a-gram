@@ -44,12 +44,12 @@ export class Login extends Component {
 
   _login = () => {
     this.props.login(this.state.control);
-    setTimeout(() => { this.props.navigation.navigate('AuthLoading');}, 1500)
-};
+    setTimeout(() => { this.props.navigation.navigate('AuthLoading');}, 2000)
+  };
 
   render() {
-    const { control } = this.state;
 
+    const { control } = this.state;
     return (
       <View style={{ alignItems: 'center', padding: '3%' }}>
         <View style={{height: '30%'}}>

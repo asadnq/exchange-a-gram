@@ -1,28 +1,25 @@
 import {
   GET_POSTS_PENDING,
   GET_POSTS_FULFILLED,
-  GET_POSTS_REJECTED, CREATE_POST_PENDING, CREATE_POST_FULFILLED, CREATE_POST_REJECTED 
+  GET_POSTS_REJECTED,
+  CREATE_POST_PENDING,
+  CREATE_POST_FULFILLED,
+  CREATE_POST_REJECTED,
+  GET_POST_PENDING,
+  GET_POST_FULFILLED,
+  GET_POST_REJECTED,
+  GET_POSTS_COMMENT_FULFILLED,
+  GET_POSTS_COMMENT_PENDING,
+  GET_POSTS_COMMENT_REJECTED,
+  ADD_COMMENT_FULFILLED,
+  ADD_COMMENT_PENDING,
+  ADD_COMMENT_REJECTED
 } from '../actions/types';
-import dummyImg from '../../../assets/dummy/mountain.jpg';
-import dummyImg2 from '../../../assets/dummy/road.jpg';
 
 const initialState = {
   posts: [],
-  post: {
-    image: dummyImg,
-    body: 'post one',
-    user: 'username',
-    comments: [
-      {
-        user: 'another user',
-        body: 'splendid!'
-      },
-      {
-        user: 'dummy user',
-        body: 'nice'
-      }
-    ]
-  },
+  post: {},
+  posts_comment: {},
   isLoading: false
 };
 const post = (state = initialState, action) => {
@@ -30,14 +27,49 @@ const post = (state = initialState, action) => {
     case GET_POSTS_FULFILLED:
       return {
         ...state,
-        posts: action.payload.data.data
+        posts: action.payload.data.data,
+        isLoading: false
+      };
+    case GET_POSTS_COMMENT_PENDING:
+    case GET_POST_PENDING:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case GET_POST_FULFILLED:
+      return {
+        ...state,
+        post: action.payload.data.data,
+        isLoading: false
+      };
+    case GET_POSTS_COMMENT_FULFILLED:
+      console.log(action.payload.data.data)
+      return {
+        ...state,
+        posts_comment: action.payload.data.data,
+        isLoading: false
       }
     case CREATE_POST_FULFILLED:
-        console.log(action.payload);
-        return {
-            ...state,
-            posts: state.posts.concat(action.payload.data)
+      console.log(action.payload);
+      return {
+        ...state,
+        posts: state.posts.concat(action.payload.data)
+      };
+    case ADD_COMMENT_FULFILLED:
+      alert('add comment fulfilled')
+      return {
+        ...state,
+        posts_comment: {
+          ...state.posts_comment,
+          comments: state.posts_comment.comments.concat(action.payload.data.data)
         }
+      }
+    case ADD_COMMENT_REJECTED:
+      alert('add comment reject')
+      return {
+        ...state,
+        isLoading: false
+      }
     default:
       return state;
   }

@@ -13,11 +13,11 @@ class AuthLoading extends React.Component {
     }
     
     _toLoginScreen = () => {
-        alert('auth error');
         this.props.navigation.navigate('Login');
     }
 
     render() {
+        
         return(
             <View>
                 <NavigationEvents onDidFocus={() => this.props.isAuthenticated ? this._toMainStack() : this._toLoginScreen()}
