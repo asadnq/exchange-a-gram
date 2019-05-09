@@ -15,7 +15,8 @@ const user = (state = initialState, action) => {
                 isLoading: true
             };
         case LOGIN_FULFILLED:
-            alert('login fulfilled')
+            alert('login success')
+            console.log(action.payload.data.user)
             return {
                 user: action.payload.data.user,
                 access_token: action.payload.data.access_token,
@@ -23,7 +24,7 @@ const user = (state = initialState, action) => {
                 isLoading: false
             };
         case LOGIN_REJECTED:
-        alert('login rejected')
+        alert('login error')
             return {
                 user: {},
                 access_token: {},

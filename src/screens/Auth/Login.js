@@ -10,8 +10,8 @@ export class Login extends Component {
     super();
     this.state = {
       control: {
-        email: '',
-        password: ''
+        email: 'test@mail.de',
+        password: '12345678'
       }
     };
   }
@@ -44,7 +44,6 @@ export class Login extends Component {
 
   _login = () => {
     this.props.login(this.state.control);
-    setTimeout(() => { this.props.navigation.navigate('AuthLoading');}, 2000)
   };
 
   render() {
