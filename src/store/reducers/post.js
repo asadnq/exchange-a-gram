@@ -53,10 +53,9 @@ const post = (state = initialState, action) => {
       console.log(action.payload);
       return {
         ...state,
-        posts: state.posts.concat(action.payload.data)
+        posts: [action.payload.data].concat(state.posts)
       };
     case ADD_COMMENT_FULFILLED:
-      alert('add comment fulfilled')
       return {
         ...state,
         posts_comment: {
@@ -65,7 +64,6 @@ const post = (state = initialState, action) => {
         }
       }
     case ADD_COMMENT_REJECTED:
-      alert('add comment reject')
       return {
         ...state,
         isLoading: false

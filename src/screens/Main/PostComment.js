@@ -17,7 +17,6 @@ import { addComment } from '../../store/actions/comment';
 class PostComment extends React.Component {
   constructor(props) {
     super(props);
-    alert('comment');
 
     this.state = {
       control: {
@@ -157,11 +156,12 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start'
   },
   userAvatar: {
-    marginRight: 10
+    marginRight: 10,
   },
   post: {
     flexDirection: 'row',
-    marginTop: 5
+    marginTop: 5,
+    width: '70%'
   },
   postBody: {
     fontSize: 18

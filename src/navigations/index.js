@@ -1,10 +1,11 @@
 import React from 'react';
 import { createAppContainer, createStackNavigator, createSwitchNavigator, createBottomTabNavigator } from 'react-navigation';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Icon } from 'react-native-elements';
 
 import Login from '../screens/Auth/Login';
 import AuthLoading from '../screens/Auth/AuthLoading';
-import Home from '../screens/Main/Home';
+import Home from '../screens/Home/Home.container';
+import Profile from '../screens/Profile/Profile.container';
 import CreatePost from '../screens/Main/CreatePost';
 import PostDetail from '../screens/Main/PostDetail';
 import PostComment from '../screens/Main/PostComment';
@@ -17,31 +18,55 @@ const AuthStack = createStackNavigator(
     }
 )
 
-const MainTab = createBottomTabNavigator(
+const HomeStack = createStackNavigator(
     {
         Home: {
             screen: Home
+        }
+    }
+)
+
+const ProfileStack = createStackNavigator(
+    {
+        Profile: {
+            screen: Profile
+        }
+    }
+)
+
+const MainTab = createBottomTabNavigator(
+    {
+        Home: {
+            screen: HomeStack,
+            navigationOptions: ({ navigation }) => ({
+                tabBarIcon: ({ focused, tintColor }) => {
+                  const iconName = focused ? 'home' : 'home';
+                  return <Icon name={iconName} size={32} type='material' outline/>;
+                },
+              })
         },
         CreatePost: {
-            screen: CreatePost
+            screen: CreatePost,
+
+            navigationOptions: ({ navigation }) => ({
+                tabBarIcon: ({ focused, tintColor }) => {
+                  const iconName = focused ? 'add' : 'add';
+                  return <Icon name={iconName} size={32}/>;
+                },
+              })
+        },
+        Profile: {
+            screen: ProfileStack,
+            navigationOptions: ({ navigation }) => ({
+                tabBarIcon: ({ focused, tintColor }) => {
+                    const iconName = focused ? 'person' : 'person';
+                  return <Icon name={iconName} size={32} type='material' outlined />;
+                },
+              })
         }
     },
     {
         initialRouteName: 'Home',
-        defaultNavigationOptions: ({navigation}) => ({
-            tabBarIcon: ({ tintColor }) => {
-                const { routeName } = navigation.state;
-
-                let iconName;
-
-                if(routeName === 'Home') {
-                    iconName = 'home';
-                } else {
-                    iconName = 'add';
-                }
-                return <Icon name={iconName} size={32} color={tintColor} />
-            }
-        }),
         tabBarOptions: {
             showIcon: true,
             showLabel: false,

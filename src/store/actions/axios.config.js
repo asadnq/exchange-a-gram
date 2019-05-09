@@ -1,8 +1,10 @@
 import axios from 'axios';
 import store from '../store';
+import { API_PATH } from '../../config/url.config'
+
 
 const instance = axios.create({
-    baseURL: 'http://192.168.1.109:3333/api/v1'
+    baseURL: API_PATH
 });
 
 instance.interceptors.request.use((config) => {
@@ -13,4 +15,4 @@ instance.interceptors.request.use((config) => {
     return config;
 });
 
-export default instance; 
+export default instance;
