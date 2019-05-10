@@ -11,6 +11,7 @@ export default class Home extends Component {
   });
   componentDidMount() {
     this.props.getPosts();
+    this.props.getUser(this.props.authUser.id)
   }
 
   _toPostDetail(id) {

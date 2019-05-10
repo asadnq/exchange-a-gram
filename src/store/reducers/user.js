@@ -1,39 +1,24 @@
-import { LOGIN_FULFILLED, LOGIN_PENDING, LOGIN_REJECTED } from '../actions/types';
+import { GET_USER_FULFILLED } from "../actions/types";
+
 
 const initialState = {
     user: {},
-    access_token: {},
-    isAuthenticated: false,
+    users: [],
     isLoading: false
 }
 
 const user = (state = initialState, action) => {
     switch(action.type) {
-        case LOGIN_PENDING:
+        case GET_USER_FULFILLED:
+            console.log(action.payload.data)
             return {
                 ...state,
-                isLoading: true
-            };
-        case LOGIN_FULFILLED:
-            alert('login success')
-            console.log(action.payload.data.user)
-            return {
                 user: action.payload.data.user,
-                access_token: action.payload.data.access_token,
-                isAuthenticated: true,
                 isLoading: false
-            };
-        case LOGIN_REJECTED:
-        alert('login error')
-            return {
-                user: {},
-                access_token: {},
-                isAuthenticated: false,
-                isLoading: false
-            };
-        default:
-            return state;
+            }
+    default:
+        return state
     }
 }
 
-export default user;
+export default user

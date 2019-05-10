@@ -129,7 +129,7 @@ const mapState = state => {
   return {
     post: state.post.posts_comment,
     isLoading: state.post.isLoading,
-    user: state.user.user
+    user: state.auth.user
   };
 };
 

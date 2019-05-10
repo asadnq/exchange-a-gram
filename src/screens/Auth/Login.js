@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import { Text, Button, Input } from 'react-native-elements';
 import { connect } from 'react-redux';
 
-import { login } from '../../store/actions/user';
+import { login } from '../../store/actions/auth';
 
 export class Login extends Component {
   constructor() {
@@ -87,17 +87,12 @@ export class Login extends Component {
   }
 }
 
-const mapState = state => ({
-  isAuthenticated: state.user.isAuthenticated
-})
 
 const mapDispatch = dispatch => ({
   login: user => dispatch(login(user))
 });
 
 export default connect(
-  mapState,
+  null,
   mapDispatch
 )(Login);
-
-const styles = StyleSheet.create({});
