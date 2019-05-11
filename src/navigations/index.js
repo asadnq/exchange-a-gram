@@ -1,8 +1,9 @@
 import React from 'react';
 import { createAppContainer, createStackNavigator, createSwitchNavigator, createBottomTabNavigator } from 'react-navigation';
-import { Icon } from 'react-native-elements';
+// import { Icon } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
-import Login from '../screens/Auth/Login';
+import Login from '../screens/Login/Login.container';
 import AuthLoading from '../screens/Auth/AuthLoading';
 import Home from '../screens/Home/Home.container';
 import Profile from '../screens/Profile/Profile.container';
@@ -41,7 +42,7 @@ const MainTab = createBottomTabNavigator(
             navigationOptions: ({ navigation }) => ({
                 tabBarIcon: ({ focused, tintColor }) => {
                   const iconName = focused ? 'home' : 'home';
-                  return <Icon name={iconName} size={32} type='material' outline/>;
+                  return <Icon name={iconName} size={32} outlined/>;
                 },
               })
         },
@@ -60,7 +61,7 @@ const MainTab = createBottomTabNavigator(
             navigationOptions: ({ navigation }) => ({
                 tabBarIcon: ({ focused, tintColor }) => {
                     const iconName = focused ? 'person' : 'person';
-                  return <Icon name={iconName} size={32} type='material' outlined />;
+                  return <Icon name={iconName} size={32} />;
                 },
               })
         }
