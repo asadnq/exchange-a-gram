@@ -1,7 +1,12 @@
 import React from 'react';
-import { createAppContainer, createStackNavigator, createSwitchNavigator, createBottomTabNavigator } from 'react-navigation';
+import {
+  createAppContainer,
+  createStackNavigator,
+  createSwitchNavigator,
+  createBottomTabNavigator
+} from 'react-navigation';
 // import { Icon } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/MaterialIcons'
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Login from '../screens/Login/Login.container';
 import AuthLoading from '../screens/Auth/AuthLoading';
@@ -11,109 +16,108 @@ import CreatePost from '../screens/Main/CreatePost';
 import PostDetail from '../screens/Main/PostDetail';
 import PostComment from '../screens/Main/PostComment';
 
-const AuthStack = createStackNavigator(
-    {
-        Login: {
-            screen: Login
-        }
-    }
-)
+const AuthStack = createStackNavigator({
+  Login: {
+    screen: Login
+  }
+});
 
-const HomeStack = createStackNavigator(
-    {
-        Home: {
-            screen: Home
-        }
-    }
-)
+const HomeStack = createStackNavigator({
+  Home: {
+    screen: Home
+  }
+});
 
-const ProfileStack = createStackNavigator(
-    {
-        Profile: {
-            screen: Profile
-        }
+const ProfileStack = createStackNavigator({
+  Profile: {
+    screen: Profile
+  }
+});
+
+const CreatePostStack = createStackNavigator({
+    CreatePost: {
+      screen: CreatePost,
     }
-)
+})
 
 const MainTab = createBottomTabNavigator(
-    {
-        Home: {
-            screen: HomeStack,
-            navigationOptions: ({ navigation }) => ({
-                tabBarIcon: ({ focused, tintColor }) => {
-                  const iconName = focused ? 'home' : 'home';
-                  return <Icon name={iconName} size={32} outlined/>;
-                },
-              })
-        },
-        CreatePost: {
-            screen: CreatePost,
-
-            navigationOptions: ({ navigation }) => ({
-                tabBarIcon: ({ focused, tintColor }) => {
-                  const iconName = focused ? 'add' : 'add';
-                  return <Icon name={iconName} size={32}/>;
-                },
-              })
-        },
-        Profile: {
-            screen: ProfileStack,
-            navigationOptions: ({ navigation }) => ({
-                tabBarIcon: ({ focused, tintColor }) => {
-                    const iconName = focused ? 'person' : 'person';
-                  return <Icon name={iconName} size={32} />;
-                },
-              })
+  {
+    Home: {
+      screen: HomeStack,
+      navigationOptions: ({ navigation }) => ({
+        tabBarIcon: ({ focused, tintColor }) => {
+          const iconName = focused ? 'home' : 'home';
+          return <Icon name={iconName} size={32} outlined />;
         }
+      })
     },
-    {
-        initialRouteName: 'Home',
-        tabBarOptions: {
-            showIcon: true,
-            showLabel: false,
-            activeTintColor: '#222',
-            inactiveTintColor: '#555'
+    CreatePost: {
+      screen: CreatePostStack,
+      navigationOptions: ({ navigation }) => ({
+        tabBarIcon: ({ focused, tintColor }) => {
+          const iconName = focused ? 'add' : 'add';
+          return <Icon name={iconName} size={32} />;
         }
+      })
+    },
+    Profile: {
+      screen: ProfileStack,
+      navigationOptions: ({ navigation }) => ({
+        tabBarIcon: ({ focused, tintColor }) => {
+          const iconName = focused ? 'person' : 'person';
+          return <Icon name={iconName} size={32} />;
+        }
+      })
     }
-)
+  },
+  {
+    initialRouteName: 'Home',
+    tabBarOptions: {
+      showIcon: true,
+      showLabel: false,
+      activeTintColor: '#222',
+      inactiveTintColor: '#555'
+    }
+  }
+);
 
 const MainStack = createStackNavigator(
-    {
-        MainTab: {
-            screen: MainTab,
-            navigationOptions: {
-                header: null
-            }
-        },
-        PostDetail: {
-            screen: PostDetail
-        },
-        PostComment: {
-            screen: PostComment
-        }
+  {
+    MainTab: {
+      screen: MainTab,
+      navigationOptions: {
+        header: null
+      }
     },
-    {
-        initialRouteName: 'MainTab'
+    PostDetail: {
+      screen: PostDetail
+    },
+    PostComment: {
+      screen: PostComment
     }
-)
+  },
+  {
+    initialRouteName: 'MainTab'
+  }
+);
 
 const MainSwitch = createSwitchNavigator(
-    {
-        Auth: {
-            screen: AuthStack
-        },
-        Main: {
-            screen: MainStack
-        },
-        AuthLoading: {
-            screen: AuthLoading
-        }
+  {
+    Auth: {
+      screen: AuthStack
     },
-    {
-        initialRouteName: 'Auth'
+    Main: {
+      screen: MainStack
+    },
+    AuthLoading: {
+      screen: AuthLoading
     }
-)
+  },
+  {
+    initialRouteName: 'Auth'
+  }
+);
 
-const RootNavigation = createAppContainer(MainSwitch)
+const RootNavigation = createAppContainer(MainSwitch);
 
-export default RootNavigation
+export default RootNavigation;

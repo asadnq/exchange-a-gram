@@ -2,14 +2,12 @@ import React from 'react';
 import { View, Dimensions } from 'react-native';
 import { Input, Button, Image, Text } from 'react-native-elements';
 import ImagePicker from 'react-native-image-crop-picker';
-import axios from 'axios';
-import { connect } from 'react-redux';
 import Modal from 'react-native-modal';
 
-import { createPost } from '../../store/actions/post';
 import addPostImg from '../../../assets/images/add_image.png';
+import styles from './CreatePost.style';
 
-class CreatePost extends React.Component {
+export default class CreatePost extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,7 +23,17 @@ class CreatePost extends React.Component {
     return {
       title: 'New post',
       headerRight: (
-        <Button title="share" type="solid" buttonStyle={{backgroundColor: 'rgba(0,0,0,0)'}} titleStyle={{textTransform: 'capitalize', fontSize: 20, color: '#53B8E9'}} onPress={navigation.getParam('save')} />
+        <Button
+          title="share"
+          type="solid"
+          buttonStyle={{ backgroundColor: 'rgba(0,0,0,0)' }}
+          titleStyle={{
+            textTransform: 'capitalize',
+            fontSize: 20,
+            color: '#53B8E9'
+          }}
+          onPress={navigation.getParam('save')}
+        />
       )
     };
   };
@@ -106,9 +114,9 @@ class CreatePost extends React.Component {
 
   componentDidMount() {
     this.props.navigation.setParams({
-      save: this.handleUploadData.bind(this)  
-    })  
-  }  
+      save: this.handleUploadData.bind(this)
+    });
+  }
 
   render() {
     const { width, height } = Dimensions.get('window');
@@ -124,24 +132,8 @@ class CreatePost extends React.Component {
           onBackdropPress={this._toggleModalVisibility}
           style={{ alignItems: 'center' }}
         >
-          <View
-            style={{
-              backgroundColor: '#FFF',
-              borderRadius: 5,
-              width: width * 0.6,
-              height: '40%',
-              flexDirection: 'column'
-            }}
-          >
-            <View
-              style={{
-                paddingHorizontal: 15,
-                paddingTop: 15,
-                flex: 1,
-                flexDirection: 'row',
-                justifyContent: 'center'
-              }}
-            >
+          <View style={styles.innerModal}>
+            <View style={styles.modalHeader}>
               <Text h4>select image</Text>
             </View>
             <View style={{ flexDirection: 'column' }}>
@@ -164,7 +156,7 @@ class CreatePost extends React.Component {
             </View>
           </View>
         </Modal>
-        <View style={{ flexDirection: 'row' }}>
+        <View style={{ flexDirection: 'row', height: height * .15 }}>
           <View style={{ flexDirection: 'column', width: '32%' }}>
             <Image
               containerStyle={{ width: '100%', height: height * 0.2 }}
@@ -193,7 +185,7 @@ class CreatePost extends React.Component {
               multiline={true}
               inputContainerStyle={{ height: height * 0.2 }}
               inputStyle={{ height: height * 0.2 }}
-              placeholder="enter a caption"
+              placeholder="Write a caption..."
               value={this.state.control.body}
               onChangeText={this.postBodyHandler}
             />
@@ -203,8 +195,3 @@ class CreatePost extends React.Component {
     );
   }
 }
-
-export default connect(
-  null,
-  { createPost }
-)(CreatePost);

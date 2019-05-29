@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet , View, Text, Dimensions, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet , View, Text, Dimensions, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { withNavigation } from 'react-navigation';
 
@@ -40,13 +40,13 @@ export default withNavigation(HeaderHome);
 const styles = StyleSheet.create({
   container: {
     width,
-    height: 60,
+    height: height * .1,
     backgroundColor: '#fafafa',
     borderBottomWidth: 1,
     borderColor: '#b4b6b7',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   leftItem: {
     flexDirection: 'row',
@@ -69,9 +69,10 @@ const styles = StyleSheet.create({
     width: 25
   },
   title: {
-    fontFamily: 'Billabong',
-    fontSize: 30,
+    fontFamily: 'Rochester-Regular',
+    fontSize: 36,
     color: '#000',
-    marginTop: 15
+    textTransform: 'lowercase',
+    marginBottom: '5%'
   }
 });

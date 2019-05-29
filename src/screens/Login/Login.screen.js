@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
-import { Text, Button, Input, Icon } from 'react-native-elements';
+import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { Button, Input, Icon } from 'react-native-elements';
 import styles from './Login.style';
 
 export default class Login extends Component {

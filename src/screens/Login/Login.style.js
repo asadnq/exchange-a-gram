@@ -9,10 +9,10 @@ export default StyleSheet.create({
     justifyContent: 'center'
   },
   headingText: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
-    color: '#333'
+    fontSize: 48,
+    color: '#111',
+    fontFamily: 'Rochester-Regular',
+    fontWeight: '400'
   },
   formContainer: {
     height: height * 0.32,

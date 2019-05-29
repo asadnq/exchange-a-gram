@@ -3,8 +3,7 @@ import Profile from './Profile.screen';
 
 const mapState = state => {
   return {
-    user: state.user.user,
-    posts: state.post.posts
+    user: state.user.user
   };
 };
 
