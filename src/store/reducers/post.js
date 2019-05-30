@@ -13,7 +13,8 @@ import {
   GET_POSTS_COMMENT_REJECTED,
   ADD_COMMENT_FULFILLED,
   ADD_COMMENT_PENDING,
-  ADD_COMMENT_REJECTED
+  ADD_COMMENT_REJECTED,
+  LIKE_POST_FULFILLED
 } from '../actions/types';
 
 const initialState = {
@@ -67,6 +68,10 @@ const post = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false
+      }
+    case LIKE_POST_FULFILLED:
+      return {
+        ...state
       }
     default:
       return state;

@@ -9,6 +9,7 @@ export default class Home extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: <HeaderHome />
   });
+
   componentDidMount() {
     this.props.getPosts();
     this.props.getUser(this.props.authUser.id)
@@ -25,6 +26,10 @@ export default class Home extends Component {
     this.props.getPostsComment(id);
   };
 
+  _likePostHandler = id => {
+    this.props.likePost(id); 
+  }
+
   render() {
     return (
       <FlatList
@@ -33,7 +38,8 @@ export default class Home extends Component {
         renderItem={({ item }) => (
           <Post
             {...item}
-            commentButtonAction={this._toPostsComment.bind(this, item.id)}
+            commentButtonOnPress={this._toPostsComment.bind(this, item.id)}
+            likeButtonOnPress={this._likePostHandler.bind(this, item.id)}
             bodyAction={this._toPostDetail.bind(this, item.id)}
           />
         )}

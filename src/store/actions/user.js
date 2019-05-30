@@ -7,3 +7,10 @@ export const getUser = id => {
         payload: instance.get('/users/' + id)
     }
 }
+
+export const getUsersPosts = id => {
+    return {
+        type: GET_USERS_POSTS,
+        payload: instance.get(`/users/${id}/posts`)
+    }
+}

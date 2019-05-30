@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { getPosts, getPost, getPostsComment } from '../../store/actions/post';
+import { likePost } from '../../store/actions/like';
 import { getUser } from '../../store/actions/user'
 import Home from './Home.screen';
 
@@ -13,5 +14,5 @@ const mapState = state => {
 
 export default connect(
   mapState,
-  { getPosts, getPost, getPostsComment, getUser }
+  { getPosts, getPost, getPostsComment, getUser, likePost }
 )(Home);

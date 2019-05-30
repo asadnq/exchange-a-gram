@@ -10,22 +10,21 @@ import { Text, Image, Avatar } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { POST_IMAGE_PATH, PROFILE_PICTURE_PATH } from '../../config/url.config';
 import addPostImg from '../../../assets/images/add_image.png';
-import { Comment, Like, PaperPlane } from '../icons'
+import { Comment, Like, PaperPlane } from '../icons';
 
 class PostItem extends React.Component {
-
   constructor(props) {
     super(props);
-    let showMore = this.props.body.length > 45
+    let showMore = this.props.body.length > 45;
     this.state = {
-      showMore: showMore  
-    }
-  }  
- 
-  _onShowMore = () => {
-    this.setState({showMore: !this.state.showMore})   
+      showMore: showMore
+    };
   }
-  
+
+  _onShowMore = () => {
+    this.setState({ showMore: !this.state.showMore });
+  };
+
   render() {
     const buttonShowMore = (
       <Text onPress={this._onShowMore} style={styles.showmore}>
@@ -38,7 +37,9 @@ class PostItem extends React.Component {
           <Avatar
             rounded
             containerStyle={styles.userAvatar}
-            source={{ uri: PROFILE_PICTURE_PATH + this.props.user.profile_pict }}
+            source={{
+              uri: PROFILE_PICTURE_PATH + this.props.user.profile_pict
+            }}
           />
           <Text style={styles.headerUsername}>{this.props.user.username}</Text>
         </View>
@@ -54,19 +55,24 @@ class PostItem extends React.Component {
         />
         <View style={styles.actionBar}>
           <View style={styles.actionLeft}>
-          <Like size={30}/>
-          <TouchableOpacity onPress={this.props.commentButtonAction}>
-            <Comment size={30} />
-          </TouchableOpacity>
-          <PaperPlane size={30} />
+            <TouchableOpacity onPress={this.props.likeButtonOnPress}>
+              <Like size={30} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.props.commentButtonOnPress}>
+              <Comment size={30} />
+            </TouchableOpacity>
+            <PaperPlane size={30} />
           </View>
-          <View style={styles.actionRight}>
-          
-          </View>
+          <View style={styles.actionRight} />
         </View>
         <View style={styles.descriptionWrapper}>
+        <View style={styles.detailWrapper}>
+          <Text style={styles.detailLikes}>{this.props.__meta__.likes_count} Likes</Text>
+        </View>
           <View style={{ flexDirection: 'column', marginBottom: 12 }}>
-            <Text style={{ fontWeight: 'bold' }}>{this.props.user.username}</Text>
+            <Text style={{ fontWeight: 'bold' }}>
+              {this.props.user.username}
+            </Text>
             {this.state.showMore ? (
               <Text>
                 {this.props.body.substr(0, 45)}
@@ -131,6 +137,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: '38%'
+  },
+  detailWrapper :{
+    flexDirection: 'row',
+    marginVertical: height * .01
+  },
+  detailLikes: {
+    fontWeight: 'bold',
+    color: '#111'
   },
   descriptionWrapper: {
     flexDirection: 'column',
